@@ -1,0 +1,115 @@
+
+.ingresar-container {
+    background: rgba(34,34,34,0.95);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0008;
+    text-align: center;
+    width: 400px;
+    margin: 40px auto;
+}
+
+.ingresar-container h2 {
+    margin-bottom: 24px;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+}
+
+.ingresar-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 6px;
+    color: #bfa94a;
+    font-weight: bold;
+}
+
+.ingresar-container input[type="text"],
+.ingresar-container input[type="number"],
+.ingresar-container input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: #DDDDDD;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.ingresar-container input:focus {
+    border: 2px solid #bfa94a;
+    box-shadow: 0 0 0 2px #bfa94a44;
+}
+
+.ingresar-container button,
+.ingresar-container a.btn {
+    width: 100%;
+    padding: 12px;
+    background: #bfa94a;
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Anonymous Pro', monospace;
+
+}
+
+.ingresar-container button:hover,
+.ingresar-container a.btn:hover {
+    background: #fff;
+    color: #222;
+}
+
+.botones-accion {
+    display: flex;
+    gap: 10px;
+}
+.botones-accion .btn,
+.botones-accion button {
+    flex: 1;
+}
+
+
+.alert-danger {
+    background: #b94a4a;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+
+#preview {
+    max-width: 100%;
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: block;
+    object-fit: contain;
+}
+
+.ingresar-container select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: #DDDDDD;
+    font-size: 1rem;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.ingresar-container select:focus {
+    border: 2px solid #bfa94a;
+    box-shadow: 0 0 0 2px #bfa94a44;
+}

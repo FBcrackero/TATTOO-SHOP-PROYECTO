@@ -1,0 +1,242 @@
+-- Crea la base de datos
+CREATE DATABASE IF NOT EXISTS gestion_tatto_shop;
+USE gestion_tatto_shop;
+
+-- Tabla: estado
+CREATE TABLE estado (
+    idEstado INT PRIMARY KEY AUTO_INCREMENT,
+    nombreEstado VARCHAR(30),
+    descripcionEstado 	VARCHAR(60),
+    nomenclaturaEstado CHAR(4)
+);
+
+-- Tabla: tipoDocumento
+CREATE TABLE tipoDocumento (
+    idTipoDocumento INT PRIMARY KEY AUTO_INCREMENT,
+    nombreTipoDoc VARCHAR(30),
+    descripcionTipoDoc VARCHAR(60),
+    nomenclaturaTipoDoc CHAR(4),
+    idEstado INT,
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: perfil
+CREATE TABLE perfil (
+    idPerfil INT PRIMARY KEY AUTO_INCREMENT,
+    nombrePerfil VARCHAR(40),
+    descripcionPerfil VARCHAR(60),
+    nomenclaturaPerfil CHAR(4),
+    idEstado INT,
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: genero
+CREATE TABLE genero (
+    idGenero INT PRIMARY KEY AUTO_INCREMENT,
+    nombreGenero VARCHAR(40),
+    descripcionGenero VARCHAR(60),
+    nomenclaturaGenero CHAR(4)
+);
+
+-- Tabla: pais
+CREATE TABLE pais (
+    idPais INT PRIMARY KEY AUTO_INCREMENT,
+    nombrePais VARCHAR(40),
+    descripcionPais VARCHAR(60)
+);
+
+-- Tabla: departamento
+CREATE TABLE departamento (
+    idDepartamento INT PRIMARY KEY AUTO_INCREMENT,
+    nombreDepartamento VARCHAR(40),
+    descripcionDepartamento VARCHAR(60),
+    idPais INT,
+    FOREIGN KEY (idPais) REFERENCES pais(idPais)
+);
+
+-- Tabla: ciudad
+CREATE TABLE ciudad (
+    idCiudad INT PRIMARY KEY AUTO_INCREMENT,
+    nombreCiudad VARCHAR(40),
+    descripcionCiudad VARCHAR(60),
+    idDepartamento INT,
+    FOREIGN KEY (idDepartamento) REFERENCES departamento(idDepartamento)
+);
+
+-- Tabla: usuario
+CREATE TABLE usuario (
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nombresUsu VARCHAR(40),
+    apellidosUsu VARCHAR(40),
+    celularUsu VARCHAR(10),
+    NidentificacionUsu INT,
+    fechaNacUsu DATE,
+    emailUsu VARCHAR(60),
+    Contrasena VARCHAR(40),
+    idTipoDocumento INT,
+    idPerfil INT,
+    idCiudad INT,
+    idGenero INT,
+    idEstado INT,
+    FOREIGN KEY (idTipoDocumento) REFERENCES tipoDocumento(idTipoDocumento),
+    FOREIGN KEY (idPerfil) REFERENCES perfil(idPerfil),
+    FOREIGN KEY (idCiudad) REFERENCES ciudad(idCiudad),
+    FOREIGN KEY (idGenero) REFERENCES genero(idGenero),
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: cargo
+CREATE TABLE cargo (
+    idCargo INT PRIMARY KEY AUTO_INCREMENT,
+    nombreCargo VARCHAR(40),
+    descripcionCargo VARCHAR(60),
+    nomenclaturaCargo CHAR(3),
+    sueldo DOUBLE,
+    idEstado INT,
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: empleado
+CREATE TABLE empleado (
+    idEmpleado INT PRIMARY KEY AUTO_INCREMENT,
+    fechaVinculacionEmpleado DATE,
+    numeroContrato INT,
+    idCargo INT,
+    idUsuario INT,
+    idEstado INT,
+    FOREIGN KEY (idCargo) REFERENCES cargo(idCargo),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: servicio
+CREATE TABLE servicio (
+    idServicio INT PRIMARY KEY AUTO_INCREMENT,
+    nombreServicio VARCHAR(40),
+    descripcionServicio VARCHAR(60),
+    nomenclaturaServicio CHAR(4),
+    idEstado INT,
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: reserva
+CREATE TABLE reserva (
+    idReserva INT PRIMARY KEY AUTO_INCREMENT,
+    horaReserva TIME,
+    fechaReserva DATE,
+    idUsuario INT,
+    idServicio INT,
+    idEstado INT,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idServicio) REFERENCES servicio(idServicio),
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: categoriaProductos
+CREATE TABLE categoriaProductos (
+    idCategoriaProducto INT PRIMARY KEY AUTO_INCREMENT,
+    nombreCategoriaProducto VARCHAR(40),
+    descripcionCategoriaProducto VARCHAR(60),
+    nomenclaturaCategoriaProducto CHAR(4),
+    idEstado INT,
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: unidadMedida
+CREATE TABLE unidadMedida (
+    idUnidadMedida INT PRIMARY KEY AUTO_INCREMENT,
+    nombreUnidadMedida VARCHAR(40),
+    descripcionUnidadMedida VARCHAR(60),
+    nomenclaturaUnidadMedida CHAR(4),
+    idEstado INT,
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: producto
+CREATE TABLE producto (
+    codProducto INT PRIMARY KEY AUTO_INCREMENT,
+    nombreProducto VARCHAR(40),
+    descripcionProducto VARCHAR(60),
+    precioVenta DOUBLE,
+    precioCompra DOUBLE,
+    stockMax INT,
+    stockMin INT,
+    cantidadDisponible INT,
+    idCategoria INT,
+    idUnidadMedida INT,
+    idEstado INT,
+    FOREIGN KEY (idCategoria) REFERENCES categoriaProductos(idCategoriaProducto),
+    FOREIGN KEY (idUnidadMedida) REFERENCES unidadMedida(idUnidadMedida),
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: kardex
+CREATE TABLE kardex (
+    idKardex INT PRIMARY KEY AUTO_INCREMENT,
+    cantKardEntrada INT,
+    cantKardSalida INT,
+    precioVenta DOUBLE,
+    fechaInventario DATE,
+    codProducto INT,
+    FOREIGN KEY (codProducto) REFERENCES producto(codProducto)
+);
+
+-- Tabla: pedido
+CREATE TABLE pedido (
+    idPedido INT PRIMARY KEY AUTO_INCREMENT,
+    fechaPedido DATE,
+    direccionPedido VARCHAR(50),
+    idProducto INT,
+    cantidadProducto INT,
+    idUsuario INT,
+    idCiudad INT,
+    idEstado INT,
+    FOREIGN KEY (idProducto) REFERENCES producto(codProducto),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idCiudad) REFERENCES ciudad(idCiudad),
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: FormaPago
+CREATE TABLE FormaPago (
+    idFormaPago INT PRIMARY KEY AUTO_INCREMENT,
+    nombreFormaPago VARCHAR(40),
+    descripcionFormaPago VARCHAR(60),
+    nomenclaturaFormaPago CHAR(4)
+);
+
+-- Tabla: factura
+CREATE TABLE factura (
+    codFacturaProducto INT PRIMARY KEY AUTO_INCREMENT,
+    codFacturaProductoRef INT,
+    idUsuario INT,
+    codFacturaServ INT,
+    idFormaPago INT,
+    fechaFactura DATE,
+    idEstado INT,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (codFacturaServ) REFERENCES facturaServicio(codFacturaServicio),
+    FOREIGN KEY (idFormaPago) REFERENCES FormaPago(idFormaPago),
+    FOREIGN KEY (idEstado) REFERENCES estado(idEstado)
+);
+
+-- Tabla: facturaServicio
+CREATE TABLE facturaServicio (
+    codFacturaServicio INT PRIMARY KEY AUTO_INCREMENT,
+    fechaFacturaServicio DATE,
+    Cantidad INT,
+    idServicio INT,
+    FOREIGN KEY (idServicio) REFERENCES servicio(idServicio)
+);
+
+-- Tabla: facturaProducto
+CREATE TABLE facturaProducto (
+    codFacturaProducto INT,
+    codProducto INT,
+    fechaFacturaProducto DATE,
+    Cantidad INT,
+    PRIMARY KEY (codFacturaProducto, codProducto),
+    FOREIGN KEY (codFacturaProducto) REFERENCES factura(codFacturaProducto),
+    FOREIGN KEY (codProducto) REFERENCES producto(codProducto)
+);
+

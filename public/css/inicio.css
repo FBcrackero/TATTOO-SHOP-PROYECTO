@@ -1,0 +1,334 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Anonymous Pro', monospace;
+    background: #222;
+    color: #DDDDDD;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+  background-image: url('../imagenes/fondo.svg');
+  background-repeat: no-repeat;      /* Evita que se repita */
+  background-size: cover;            /* Cubre toda la pantalla */
+  background-position: center center;/* Centra la imagen */
+  /* Puedes agregar más estilos si lo necesitas */
+}
+
+.logo-superior {
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.logo-superior .logo {
+    height: 100px;
+    display: inline-block;
+}
+
+.header-superior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.buscador input {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: #333;
+    color: #DDDDDD;
+}
+
+.buscador button {
+    background: none;
+    border: none;
+    color: #DDDDDD;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+nav {
+    background: transparent;
+    margin-top: 0;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 30px;
+}
+
+.menu li a {
+    color: #DDDDDD;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: color 0.3s, text-decoration 0.3s;
+    font-weight: regular;
+    letter-spacing: 2px;
+    font-size: 18px;
+    background: none;
+}
+
+.menu li a:hover,
+.menu li a.activo {
+    color: #bfa94a;           
+    text-decoration: underline;
+    background: none;         
+}
+
+.nav-divider {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    opacity: 0.8;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 1px 6px #0006;
+}
+
+.lateral-izq {
+    position: absolute;
+    left: 190px;      /* Mueve a la derecha (ajusta el valor según lo que desees) */
+    top: 245px;      /* Baja la imagen (ajusta el valor según lo que desees) */
+    width: 160px;    /* Aumenta el ancho del contenedor */
+    height: 500px;   /* Aumenta el alto del contenedor */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 2;
+}
+
+.kanji-img {
+    width: 140px;    /* Aumenta el tamaño de la imagen */
+    height: 420px;
+    object-fit: contain;
+    display: block;
+}
+
+.contenido-central {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top: -30px;
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    max-width: 569px;
+    min-width: 320px;
+    min-height: 553px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fondo-central {
+    /* Quita el fondo oscuro y la sombra */
+    background: none;
+    box-shadow: none;
+    border-radius: 24px;
+    padding: 32px 16px 32px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 350px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.img-fondo-central {
+    width: 100%;
+    max-width: 569px;
+    height: auto;
+    max-height: 553px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.img-fondo-central img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply; /* Prueba también overlay o soft-light */
+    filter: brightness(0.95) contrast(1.1);
+    opacity: 0.32;
+}
+
+.fondo-central h1 {
+    font-size: 40px;
+    /* max-font-size y min-font-size no son propiedades CSS válidas, puedes quitarlas */
+    margin-bottom: 18px;
+    letter-spacing: 7px; /* 10% de separación entre letras */
+    color: #fff;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight: 400; /* Regular */
+    z-index: 1;
+    position: relative;
+}
+
+.fondo-central p {
+    color: #DDDDDD;
+    font-size: 13px;
+    top: 40px;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+    z-index: 1;
+    position: relative;
+    max-width: 90%;
+}
+
+.contenido-central,
+.fondo-central,
+.img-fondo-central {
+    max-width: 400px; /* O el tamaño que prefieras, por ejemplo 350px, 420px, etc. */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn-reserva {
+    margin-top: 10px;
+    top: 80px;
+    width: 220px;
+    max-width: 370px;
+    height: 60px;
+    max-height: 124px;
+    font-size: 18px;
+    min-width: 180px;
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Anonymous Pro', monospace;
+    font-weight: regular;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-reserva:hover {
+    background: #bfa94a;
+    color: #fff;
+    border: 2px solid #bfa94a;
+}
+
+footer {
+    position: static; /* o elimina la propiedad position */
+    width: 100%;
+    background: #222;
+    color: #DDDDDD;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 220px;
+    border-top: 1px solid #444;
+    
+}
+
+.copyright {
+    font-size: 1rem;
+    color: #bfa94a;
+    letter-spacing: 2px;
+}
+
+.redes-flotantes {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    z-index: 100;
+}
+
+.redes-flotantes a i {
+    color: #DDDDDD;
+    font-size: 2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.redes-flotantes a i:hover {
+    color: #bfa94a;
+    transform: scale(1.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .header-superior {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 5vw;
+    }
+    .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .contenido-central {
+        padding-top: 30px;
+    }
+    .lateral-izq {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .contenido-central,
+    .fondo-central {
+        width: 98vw;
+        min-width: 0;
+        padding: 10px;
+    }
+    .btn-reserva {
+        width: 98vw;
+        max-width: 98vw;
+        font-size: 1rem;
+        height: 48px;
+    }
+    .fondo-central h1 {
+        font-size: 2rem;
+    }
+    .img-fondo-central {
+        max-width: 98vw;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header-superior {
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px 2vw;
+    }
+    .menu li a {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+    .btn-reserva {
+        font-size: 0.9rem;
+        height: 40px;
+    }
+}
+

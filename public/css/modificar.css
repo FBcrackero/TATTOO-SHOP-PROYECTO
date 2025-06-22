@@ -1,0 +1,53 @@
+.busqueda-servicio {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.busqueda-servicio input[type="text"],
+.busqueda-servicio select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #333;
+    color: #DDD;
+    box-sizing: border-box;
+}
+
+.busqueda-servicio .btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.divisor-modificar {
+    border: none;
+    border-top: 2px solid #bfa94a;
+    margin: 18px 0 10px 0;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.volver-flecha {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 2rem;
+    color: #bfa94a;
+    text-decoration: none;
+    background: none;
+    border: none;
+    z-index: 10;
+    transition: color 0.2s;
+}
+.volver-flecha::before {
+    content: '←';
+}
+.volver-flecha:hover {
+    color: #fff;
+}
+.ingresar-container {
+    position: relative;
+}
