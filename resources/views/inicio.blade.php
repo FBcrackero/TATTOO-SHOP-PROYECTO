@@ -1,4 +1,3 @@
-{{-- filepath: resources/views/inicio.blade.php --}}
 @extends('layouts.app')
 
 @section('title', 'Inicio | Tattoo Shop')
@@ -15,7 +14,7 @@
             </div>
             <h1>TATTOO SHOP</h1>
             <p>No solo se trata de las herramientas, es sobre precisión, diseño y atención a los detalles.</p>
-            <button class="btn-reserva">RESERVA AHORA</button>
+            <a href="{{ url('/reservas') }}" class="btn-reserva">RESERVA AHORA</a>
         </div>
     </div>
 </main>

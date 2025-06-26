@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoDocumento extends Model
 {
-    protected $table = 'tipoDocumento'; // Nombre exacto de la tabla en tu BD
-    public $timestamps = false; // Si tu tabla no tiene created_at/updated_at
+    protected $table = 'tipoDocumento'; 
+    protected $primaryKey = 'idTipoDocumento'; 
+    public $timestamps = false; 
+
+   public function estado()
+    {
+        return $this->belongsTo(\App\Models\Estado::class, 'idEstado', 'idEstado');
+    }
 }

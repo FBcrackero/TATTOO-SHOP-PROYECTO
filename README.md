@@ -1,61 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PROTOTIPO_TATTOOSHOP
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proyecto de semestre para la asignatura  **Desarrollo de Software I**  
+Sistema web para la gestión de una tienda de tatuajes: inventario, ventas, agendamiento de citas (reservas), usuarios y reportes.
 
-## About Laravel
+## 📋 Descripción
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Esta aplicación permite administrar productos, servicios, reservas, usuarios y el inventario (Kardex) de una tienda de tatuajes. Incluye funcionalidades para diferentes perfiles: administrador, empleados (artistas) y clientes.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Tecnologías utilizadas
 
-## Learning Laravel
+- **Backend:** Laravel 12 (PHP 8.4)
+- **Frontend:** Blade, CSS personalizado, JavaScript, HTML
+- **Base de datos:** MySQL
+- **Otros:** Composer, NPM, Laravel Mix/Vite
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ⚙️ Instalación y ejecución
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/tuusuario/PROTOTIPO_TATTOOSHOP.git
+   cd PROTOTIPO_TATTOOSHOP
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Instala dependencias:**
+   ```bash
+   composer install
+   npm install
+   ```
 
-## Laravel Sponsors
+3. **Configura el archivo `.env`:**
+   - Copia `.env.example` a `.env` y ajusta los datos de tu base de datos y correo.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Genera la clave de la app:**
+   ```bash
+   php artisan key:generate
+   ```
 
-### Premium Partners
+5. **Ejecuta migraciones y seeders:**
+   ```bash
+   php artisan migrate --seed
+   ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+6. **Compila los assets:**
+   ```bash
+   npm run dev
+   ```
 
-## Contributing
+7. **Inicia el servidor:**
+   ```bash
+   php artisan serve
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 👤 Perfiles de usuario
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Administrador:** Gestiona usuarios, inventario, reportes y configuración.
+- **Empleado (Artista):** Consulta inventario, gestiona reservas y servicios.
+- **Cliente:** Realiza reservas, compras y consulta su historial.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🛠️ Funcionalidades principales
 
-## License
+- **Gestión de productos y servicios**
+- **Carrito de compras y checkout**
+- **Reservas de servicios**
+- **Gestión de inventario (Kardex)**
+- **Reportes imprimibles de facturas, inventario y reservas**
+- **Gestión de usuarios y perfiles**
+- **Autenticación y control de acceso**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 📄 Estructura del proyecto
+
+- `app/Http/Controllers/` — Controladores de la lógica de negocio
+- `resources/views/` — Vistas Blade (interfaz de usuario)
+- `routes/web.php` — Definición de rutas web
+- `public/` — Archivos públicos (CSS, JS, imágenes)
+- `database/` — Migraciones y seeders
+
+---
+
+## 🌐 Sobre el idioma de las rutas
+Las rutas del sistema están en inglés porque fueron generadas automáticamente por Laravel, que utiliza este idioma por defecto en sus comandos y plantillas. Esto ayuda a mantener compatibilidad con la documentación oficial y las convenciones del framework. En el caso del modelo de autenticación (registro, inicio de sesión, etc) fue implementado por la tecnología LaravelBreeze dentro de la carpeta auth.
+
+---
+
+## 📝 Notas importantes
+
+- El carrito de compras se vacía automáticamente al cerrar sesión.
+- Solo usuarios autenticados pueden acceder a productos, servicios, reservas y carrito.
+- Los reportes pueden imprimirse o exportarse como PDF desde la interfaz.
+- El inventario solo es visible para administradores y empleados.
+- La configuración solo es visible para administradores.
+- Este repositorio cuenta con la base de datos 'gestion_tattoo_shop.sql' que se uso como base para la construcción (no contiene ningún dato real)
+
+---
+
+## 👨‍💻 Autores
+
+- [José Fabián Ortiz Duque] [202369568]
+- [Angie Stefany Herrera Ramírez] [202362397]
+- [Johan Alejandro Rodríguez Cardona] [202362631]
+
+
+
+---
+
+## 📚 Licencia
+
+Proyecto académico para uso educativo.  

@@ -44,7 +44,7 @@
                             <hr class="servicio-divisor">
                             <p class="servicio-desc">{{ $servicio->descripcionServicio }}</p>
                             <div class="servicio-precio-btn">
-                                <button class="servicio-btn">RESERVAR CITA</button>
+                                <a href="{{ url('/reservas') }}" class="servicio-btn">RESERVAR CITA</a>
                             </div>
                         </div>
                     </div>

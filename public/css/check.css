@@ -1,0 +1,99 @@
+.form-checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Anonymous Pro', monospace;
+    color: #eee;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label,
+.form-group-inline label {
+    font-weight: bold;
+    color: #bfa94a;
+    font-size: 0.95rem;
+}
+
+.form-group select,
+.form-group input,
+.form-group-inline input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #181818;
+    color: #fff;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 0.95rem;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 16px;
+}
+
+.form-group-inline div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.resumen-compra {
+    margin-top: 32px;
+}
+
+.resumen-compra h3 {
+    color: #bfa94a;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+
+.resumen-compra table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.resumen-compra th,
+.resumen-compra td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #444;
+    color: #eee;
+    font-size: 0.95rem;
+}
+
+.resumen-compra th {
+    color: #bfa94a;
+    font-weight: bold;
+    text-align: left;
+}
+
+.btn-checkout {
+    margin-top: 24px;
+    padding: 12px;
+    background: #bfa94a;
+    color: #222;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.btn-checkout:hover {
+    background: #fff;
+    color: #bfa94a;
+}
+
+@media (max-width: 768px) {
+    .form-group-inline {
+        flex-direction: column;
+    }
+}

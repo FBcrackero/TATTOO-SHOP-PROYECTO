@@ -34,29 +34,44 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        // Validación aquí si lo necesitas...
+        $request->validate([
+            'nombresUsu' => 'required|string|max:40',
+            'apellidosUsu' => 'required|string|max:40',
+            'celularUsu' => 'required|digits_between:7,10',
+            'idTipoDocumento' => 'required|exists:tipodocumento,idTipoDocumento',
+            'NIdentificacion' => 'required|string|max:20',
+            'fechaNacUsu' => 'required|date',
+            'idGenero' => 'required|exists:genero,idGenero',
+            'idCiudad' => 'required|exists:ciudad,idCiudad',
+            'emailUsu' => 'required|email|max:60|unique:usuario,emailUsu',
+            'Contraseña' => 'required|string|min:8|confirmed',
+        ], [
+            'celularUsu.digits_between' => 'El celular debe tener entre 7 y 10 dígitos.',
+            'NIdentificacion.max' => 'La identificación no debe superar 20 caracteres.',
+            'Contraseña.confirmed' => 'La confirmación de contraseña no coincide.',
+        ]);
 
         $usuario = Usuario::create([
             'nombresUsu' => $request->nombresUsu,
             'apellidosUsu' => $request->apellidosUsu,
             'celularUsu' => $request->celularUsu,
             'idTipoDocumento' => $request->idTipoDocumento,
-            'NidentificacionUsu' => $request->NIdentificacion,
+            'NIdentificacion' => $request->NIdentificacion,
             'fechaNacUsu' => $request->fechaNacUsu,
             'idGenero' => $request->idGenero,
             'idCiudad' => $request->idCiudad,
             'emailUsu' => $request->emailUsu,
-            'Contrasena' => Hash::make($request->Contraseña),
-            'idPerfil' => 2, // Por defecto usuario normal
-            'idEstado' => 1  // Estado activo
+            'Contrasena' => bcrypt($request->Contraseña),
+            'idPerfil' => 2, 
+            'idEstado' => 1,
         ]);
 
         event(new Registered($usuario));
         Auth::login($usuario);
 
-        return redirect('/inicio');
+        return redirect()->route('inicio')->with('success', '¡Registro exitoso!');
     }
-
+    
     // Métodos para selects dependientes (AJAX)
     public function getDepartamentos($pais_id)
     {

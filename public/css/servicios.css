@@ -2,7 +2,6 @@
     max-width: 1200px;
     margin: 40px auto 80px auto;
     padding: 0 24px;
-    padding-left: 120px;
 }
 .servicios-titulo {
     font-size: 2rem;
@@ -98,6 +97,7 @@
     font-family: 'Anonymous Pro', monospace;
     transition: background 0.2s, color 0.2s;
     font-size: 0.95rem;
+    text-decoration: none;
 }
 .servicio-btn:hover {
     background: #dddddd;

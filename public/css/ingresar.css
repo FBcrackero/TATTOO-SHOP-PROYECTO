@@ -7,6 +7,8 @@
     text-align: center;
     width: 400px;
     margin: 40px auto;
+    position: relative;
+    min-height: 350px;
 }
 
 .ingresar-container h2 {
@@ -113,3 +115,4 @@
     border: 2px solid #bfa94a;
     box-shadow: 0 0 0 2px #bfa94a44;
 }
+

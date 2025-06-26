@@ -9,10 +9,11 @@ class Usuario extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'usuario'; // Nombre real de tu tabla
-    protected $primaryKey = 'idUsuario'; // Tu clave primaria
-
-    public $timestamps = false; // Si tu tabla no tiene created_at/updated_at
+    protected $table = 'usuario';
+    protected $primaryKey = 'idUsuario'; 
+    public $incrementing = true;
+    protected $keyType = 'int';
+    public $timestamps = false; 
 
     protected $fillable = [
         'nombresUsu',
@@ -29,15 +30,28 @@ class Usuario extends Authenticatable
         'idEstado'
     ];
 
-    // Laravel espera 'password' como campo de contraseña
+ 
     public function getAuthPassword()
     {
         return $this->Contrasena;
     }
 
-    // Si quieres que el login use 'emailUsu' en vez de 'email'
+    
     public function getAuthIdentifierName()
     {
-        return 'emailUsu';
+        return 'idUsuario';
     }
+
+    public function tipoDocumento()
+    {
+        return $this->belongsTo(\App\Models\TipoDocumento::class, 'idTipoDocumento', 'idTipoDocumento');
+    }
+
+    public function perfil() {
+        return $this->belongsTo(\App\Models\Perfil::class, 'idPerfil', 'idPerfil');
+    }
+
+    public function genero() { return $this->belongsTo(\App\Models\Genero::class, 'idGenero', 'idGenero'); }
+    public function ciudad() { return $this->belongsTo(\App\Models\Ciudad::class, 'idCiudad', 'idCiudad'); }
+
 }

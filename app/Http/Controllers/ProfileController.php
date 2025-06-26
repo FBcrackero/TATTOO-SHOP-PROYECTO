@@ -8,6 +8,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+/**
+ * HECHO POR LARAVELBREEZE
+ * Controlador para gestionar las operaciones del perfil de usuario.
+ *
+ * Métodos:
+ * - edit(Request $request): View
+ *   Muestra el formulario de edición del perfil del usuario.
+ *
+ * - update(ProfileUpdateRequest $request): RedirectResponse
+ *   Actualiza la información del perfil del usuario. Si el correo electrónico cambia, reinicia la verificación del correo.
+ *
+ * - destroy(Request $request): RedirectResponse
+ *   Elimina la cuenta del usuario después de validar la contraseña, cierra la sesión e invalida la sesión.
+ */
 
 class ProfileController extends Controller
 {

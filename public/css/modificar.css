@@ -51,3 +51,14 @@
 .ingresar-container {
     position: relative;
 }
+
+.mensaje-exito {
+    background: #4abf6a;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 18px;
+    text-align: left;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

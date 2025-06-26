@@ -7,12 +7,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Estado;
 
+/**
+ * Controlador ServicioController
+ * 
+ * Gestiona las operaciones CRUD y consultas relacionadas con los servicios.
+ * 
+ * Métodos:
+ * - index(): Muestra la lista de servicios disponibles (idEstado = 1).
+ * - create(): Muestra el formulario para ingresar un nuevo servicio.
+ * - modificar(Request $request): Permite buscar y seleccionar un servicio para modificarlo.
+ * - update(Request $request, $id): Actualiza los datos de un servicio existente, incluyendo la imagen.
+ * - eliminar(Request $request): Permite buscar y seleccionar un servicio para eliminarlo.
+ * - consultar(Request $request): Consulta servicios según diferentes filtros y criterios de búsqueda.
+ * - reporte(Request $request): Genera un reporte de servicios según filtros de búsqueda.
+ * - estado(Request $request): Permite cambiar el estado de un servicio.
+ * - estadoUpdate(Request $request, $id): Actualiza el estado de un servicio específico.
+ * - destroy($id): Elimina un servicio de la base de datos.
+ * - store(Request $request): Almacena un nuevo servicio en la base de datos, gestionando la carga de imagen.
+ * 
+ * Notas:
+ * - Utiliza validaciones para los datos de entrada.
+ * - Gestiona la carga y almacenamiento de imágenes asociadas a los servicios.
+ * - Utiliza relaciones Eloquent para obtener información del estado del servicio.
+ */
+
 class ServicioController extends Controller
 {
 
     public function index()
     {
-        $servicios = Servicio::all();
+        // Solo servicios con estado "Disponible" (por ejemplo, idEstado = 1)
+        $servicios = Servicio::where('idEstado', 1)->get();
         return view('servicios.servicios', compact('servicios'));
     }
     public function create()
