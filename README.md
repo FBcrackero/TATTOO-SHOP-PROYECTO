@@ -1,4 +1,4 @@
-# PROTOTIPO_TATTOOSHOP
+# TATTOO_SHOP
 
 Proyecto de semestre para la asignatura  **Desarrollo de Software I**  
 Sistema web para la gestión de una tienda de tatuajes: inventario, ventas, agendamiento de citas (reservas), usuarios y reportes.
