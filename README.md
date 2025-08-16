@@ -98,15 +98,6 @@ Las rutas del sistema están en inglés porque fueron generadas automáticamente
 - La configuración solo es visible para administradores.
 - Este repositorio cuenta con la base de datos 'gestion_tattoo_shop.sql' que se uso como base para la construcción (no contiene ningún dato real)
 
----
-
-## 👨‍💻 Autores
-
-- [José Fabián Ortiz Duque] [202369568]
-- [Angie Stefany Herrera Ramírez] [202362397]
-- [Johan Alejandro Rodríguez Cardona] [202362631]
-
-
 
 ---
 
